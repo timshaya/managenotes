@@ -1,8 +1,10 @@
 const fs = require('fs');
 
+const pth = 'notes-data.json';
+
 var fetchNotes = () => {
   try {
-    var notesString = fs.readFileSync('notes-data.json');
+    var notesString = fs.readFileSync(pth);
     return JSON.parse(notesString);
   } catch(e) {
     return [];
@@ -10,7 +12,7 @@ var fetchNotes = () => {
 };
 
 var saveNotes = (notes) => {
-  fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+  fs.writeFileSync(pth, JSON.stringify(notes));
 };
 
 var addNote = (title, body) => {
